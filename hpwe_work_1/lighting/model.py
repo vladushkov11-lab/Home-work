@@ -1,5 +1,3 @@
-"""Логика дома. Этот модуль работает без графического интерфейса."""
-
 from dataclasses import dataclass
 
 
@@ -27,7 +25,6 @@ class HouseLighting:
 
     @property
     def rooms(self) -> tuple[RoomState, ...]:
-        # У всех комнат один источник состояния: рассинхронизация исключена.
         return tuple(
             RoomState(floor, name, self._is_on)
             for floor, name in self.ROOM_LAYOUT
